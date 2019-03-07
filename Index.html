@@ -1,15 +1,157 @@
 <!DOCTYPE html>
-<<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+  <meta charset="utf-8">
+	<title>.::Crazy Animes::.</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">  
+  <link rel="shortcut icon" href="Imagens/favicon-naruto.png"/>  
 </head>
 <body>
-    
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Crazy Animes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mangàs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Animes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Aventura</a>
+            <a class="dropdown-item" href="#">Ação</a>
+            <a class="dropdown-item" href="#">Ficção</a>
+            <a class="dropdown-item" href="#">Drama</a>
+            <a class="dropdown-item" href="#">Terror</a>
+            <a class="dropdown-item" href="#">Romance</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Aprenda a desenhar</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Produtos (em breve)</a>
+
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+        <button class="btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
+         
+      </form>
+    </div>
+  </nav>
+  
+<!-- -->
+
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Crazy Animes</h1> 
+          <p class="lead text-muted">Seja Bem Vindo</p>
+          <p class="lead text-muted">Ainda não tem um conta? 
+            <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#Modal">Crei uma agora!!</button></p>
+         
+        </div>
+      </section>
+
+     <!-- MODAL -->
+
+            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">CrazyAnimes • Entrar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email...">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="senha..">
+                        <small  class="form-text text-muted"><button type="button" class="btn btn-light btn-sm" >Esqueceu a senha?</button> nòs damos um jeito!</small>
+                      </div>
+
+                      <button type="button" class="btn btn-dark btn-sm">Logar</button>
+                  </div>
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm">Criar uma conta</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Fechar</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- -->
+          
+            <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                   
+                  <div class="card-deck">
+                    <div class="card">
+                      <img src="Imagens/erro.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Titulo do Anime</h5>
+                        <p class="card-text">sinopse</p>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Assistir</button>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Data do anime</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="Imagens/erro.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Titulo do Anime</h5>
+                        <p class="card-text">sinopse</p>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Assistir</button>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Data do anime</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="Imagens/erro.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Titulo do Anime</h5>
+                        <p class="card-text">sinopse</p>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Assistir</button>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Data do anime</small>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+        
+
+
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/popper.min.js"></script>
 </body>
+
 </html>
