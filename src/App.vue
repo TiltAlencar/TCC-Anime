@@ -6,14 +6,7 @@
         v-model="valid"
         lazy-validation
       >
-        <v-text-field
-          v-model="name"
-          :counter="10"
-          :rules="nameRules"
-          label="Name"
-          required
-        ></v-text-field>
-
+        
         <v-text-field
           v-model="email"
           :rules="emailRules"
@@ -21,13 +14,15 @@
           required
         ></v-text-field>
 
-        <v-select
-          v-model="select"
-          :items="items"
-          :rules="[v => !!v || 'Item is required']"
-          label="Item"
+        <v-text-field
+          v-model="Senha"
+          :counter="10"
+          :rules="nameRules"
+          label="Senha"
           required
-        ></v-select>
+          type="password"
+        
+        ></v-text-field>
 
         <v-checkbox
           v-model="checkbox"
@@ -61,6 +56,16 @@
     </div>
   </v-app>
 </template>
+
+<style>
+  .login{
+
+    margin-left: 75pt;
+    margin-right: 75px;
+
+  }
+
+</style>
 
 <script>
 import HelloWorld from './components/HelloWorld'
