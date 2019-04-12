@@ -16,7 +16,7 @@
 
         <v-text-field
           v-model="Senha"
-          :counter="10"
+          :counter="15"
           :rules="nameRules"
           label="Senha"
           required
@@ -26,32 +26,28 @@
 
         <v-checkbox
           v-model="checkbox"
-          :rules="[v => !!v || 'You must agree to continue!']"
-          label="Do you agree?"
+          :rules="[v => !!v || 'Você não prometeu ainda!']"
+          label="Prometo nunca te esquecer"
           required
         ></v-checkbox>
 
         <v-btn
-          :disabled="!valid"
-          color="success"
+          
+          color="#7E57C2"
           @click="validate"
         >
           Validate
         </v-btn>
 
         <v-btn
-          color="error"
-          @click="reset"
+          color="#18FFFF"
+          @click="validate"
         >
-          Reset Form
+          Validate
         </v-btn>
 
-        <v-btn
-          color="warning"
-          @click="resetValidation"
-        >
-          Reset Validation
-        </v-btn>
+
+
       </v-form>
     </div>
   </v-app>
@@ -68,17 +64,35 @@
 </style>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+  export default {
+    data: () => ({
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters'
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
+      select: null,
+      items: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        'Item 4'
+      ],
+      checkbox: false
+    }),
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
+    methods: {
+      validate () {
+        if (this.$refs.form.validate()) {
+          this.snackbar = true
+        }
+      },
     }
   }
-}
 </script>
