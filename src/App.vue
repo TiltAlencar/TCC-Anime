@@ -1,98 +1,104 @@
 <template>
-  <v-app dark> <!--body-->
-    <div class="login">
-      <v-form
-        ref="form"
-        v-model="valid"
-        lazy-validation
-      >
-        
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="E-mail"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="Senha"
-          :counter="15"
-          :rules="nameRules"
-          label="Senha"
-          required
-          type="password"
-        
-        ></v-text-field>
-
-        <v-checkbox
-          v-model="checkbox"
-          :rules="[v => !!v || 'Você não prometeu ainda!']"
-          label="Prometo nunca te esquecer"
-          required
-        ></v-checkbox>
-
-        <v-btn
-          
-          color="#7E57C2"
-          @click="validate"
-        >
-          Validate
-        </v-btn>
-
-        <v-btn
-          color="#18FFFF"
-          @click="validate"
-        >
-          Validate
-        </v-btn>
-
-
-
-      </v-form>
-    </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawerRight"
+      fixed
+      right
+      clipped
+      app
+    >
+      <v-list dense>
+        <v-list-tile @click.stop="right = !right">
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Open Temporary Drawer</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar
+      color="dark"
+      dark
+      fixed
+      app
+      clipped-right
+    >
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Crazy Animes</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
+    </v-toolbar>
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      app
+    >
+      <v-list dense>
+        <v-list-tile @click.stop="left = !left">
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Open Temporary Drawer</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-navigation-drawer
+      v-model="left"
+      temporary
+      fixed
+    ></v-navigation-drawer>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <v-flex shrink>
+            <v-tooltip right>
+              <template v-slot:activator="{ on }">
+                <v-btn :href="source" icon large target="_blank" v-on="on">
+                  <v-icon large>code</v-icon>
+                </v-btn>
+              </template>
+              <span>Source</span>
+            </v-tooltip>
+            <v-tooltip right>
+              <template v-slot:activator="{ on }">
+                <v-btn icon large href="https://codepen.io/johnjleider/pen/KQrPKJ" target="_blank" v-on="on">
+                  <v-icon large>mdi-codepen</v-icon>
+                </v-btn>
+              </template>
+              <span>Codepen</span>
+            </v-tooltip>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+    <v-navigation-drawer
+      v-model="right"
+      right
+      temporary
+      fixed
+    ></v-navigation-drawer>
+    <v-footer color="blue-grey" class="white--text" app>
+      <span>Vuetify</span>
+      <v-spacer></v-spacer>
+      <span>&copy; 2017</span>
+    </v-footer>
   </v-app>
 </template>
-
-<style>
-  .login{
-
-    margin-left: 75pt;
-    margin-right: 75px;
-
-  }
-
-</style>
 
 <script>
   export default {
     data: () => ({
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters'
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ],
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4'
-      ],
-      checkbox: false
+      drawer: null,
+      drawerRight: null,
+      right: false,
+      left: false
     }),
-
-    methods: {
-      validate () {
-        if (this.$refs.form.validate()) {
-          this.snackbar = true
-        }
-      },
+    props: {
+      source: String
     }
   }
 </script>
