@@ -1,36 +1,77 @@
-<template >
-  <v-app style="
-    background: black;
-    color: white;
-  ">    
+<template>
+  <v-app id="inspire"dark style="
+  background: rgba(165,0,173,1);
+background: -moz-linear-gradient(top, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(165,0,173,1)), color-stop(44%, rgba(153,0,133,1)), color-stop(100%, rgba(76,0,92,1)));
+background: -webkit-linear-gradient(top, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
+background: -o-linear-gradient(top, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
+background: -ms-linear-gradient(top, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
+background: linear-gradient(to bottom, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', endColorstr='#4c005c', GradientType=0 );">
     <v-navigation-drawer
-      v-model="drawerRight"
-      fixed
-      right
+      v-model="drawer"
       clipped
-      app
-    >
-     
-    </v-navigation-drawer>
-    <v-toolbar
-      black
       fixed
       app
-      clipped-right
     >
+      <v-list dense>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>dashboard</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Dashboard</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>settings</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Settings</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+       <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>gavel
 
-    
+            </v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Animes</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>widgets</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Mangás</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>event</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Alguma coisa</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Crazy Animes</v-toolbar-title>
-      
-    <v-spacer>
+       
+    <v-spacer></v-spacer>
 
-      
-    <!-- itens do menu -->  
+        
+      <v-btn flat>Animes</v-btn>
+      <v-btn flat>Mangás</v-btn>
 
-
-    
-    </v-spacer>
 <!-- botão login -->
       <template>
         <div class="text-xs-center">
@@ -145,48 +186,20 @@
       </template>
 
 <!-- fim botão login -->
+      
+  
 
-
-    <v-btn icon>
-      <v-icon>search</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>refresh</v-icon>
-    </v-btn>  
-
-    <v-btn icon>
-      <v-icon>more_vert</v-icon>
-    </v-btn>
-
-    </v-toolbar>
-
-    
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      app
-    >
-    </v-navigation-drawer>
-    <!-- fim menu -->
+   
+      </v-toolbar>
 
     
   </v-app>
-
-  
 </template>
 
 <script>
   export default {
     data: () => ({
-      drawer: null,
-      drawerRight: null,
-      right: false,
-      left: false
+      drawer: null
     }),
     props: {
       source: String
@@ -194,7 +207,7 @@
   }
 </script>
 
-
+<!-- Login -->
 <script>
   export default {
     data () {
@@ -223,3 +236,4 @@
     }
   }
 </script>
+<!-- Fim Login -->
