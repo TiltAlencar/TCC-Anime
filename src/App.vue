@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire"dark style="
+  <v-app id="inspire" style="
   background: rgba(165,0,173,1);
 background: -moz-linear-gradient(top, rgba(165,0,173,1) 0%, rgba(153,0,133,1) 44%, rgba(76,0,92,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(165,0,173,1)), color-stop(44%, rgba(153,0,133,1)), color-stop(100%, rgba(76,0,92,1)));
@@ -187,11 +187,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
 
 <!-- fim botão login -->
       
-  
-
-   
       </v-toolbar>
 
+<!-- Carrossel -->
+    <template>
+  <v-carousel hide-controls>
+    <v-carousel-item
+      v-for="(item,i) in items"
+      :key="i"
+      :src="item.src"
+    ></v-carousel-item>
+  </v-carousel>
+    </template>
+<!-- 
     
   </v-app>
 </template>
@@ -237,3 +245,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
   }
 </script>
 <!-- Fim Login -->
+
+<!-- Carrossel -->
+<script>
+  export default {
+    data () {
+      return {
+        items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+          }
+        ]
+      }
+    }
+  }
+</script>
+
+<!-- Fim Carrossel -->
