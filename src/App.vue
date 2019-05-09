@@ -52,7 +52,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-list-tile @click="">
+      <v-list-tile @click="algo">
           <v-list-tile-action>
             <v-icon>event</v-icon>
           </v-list-tile-action>
@@ -211,12 +211,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
 
 #carrossel{
   width:95%;
-  display:flex;
-  justify-content:10px;
-  height:16%;
   margin-top:8%;
-  margin-left:2.5%;
-  position:absolute;
+  margin-left:2.5%; 
 }
 
 </style>
@@ -270,10 +266,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
       return {
         items: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+            src: require('@/assets/naruto.jpg')
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+            src: require('@/assets/no-game-no-life.jpg')
           },
           {
             src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
