@@ -89,98 +89,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
             </v-btn>
           </template>
 
-          <v-card>
-            <v-card-title
-              class="headline grey lighten-2"
-              primary-title
-            >
-              REGISTRAR CONTA!
-            </v-card-title>
-
-            <v-card-text>
-              <template>
-              <v-card
-                class="mx-auto"
-                max-width="500"
-              >
-                <v-card-title class="title font-weight-regular justify-space-between">
-                  <span>{{ currentTitle }}</span>
-                  <v-avatar
-                    color="primary lighten-2"
-                    class="subheading white--text"
-                    size="24"
-                    v-text="step"
-                  ></v-avatar>
-                </v-card-title>
-
-                <v-window v-model="step">
-                  <v-window-item :value="1">
-                    <v-card-text>
-                      <v-text-field
-                        label="Email"
-
-                      ></v-text-field>
-                      <span class="caption grey--text text--darken-1">
-                        Insira seu email acima!!
-                      </span>
-                    </v-card-text>
-                  </v-window-item>
-
-                  <v-window-item :value="2">
-                    <v-card-text>
-                      <v-text-field
-                        label="Senha"
-                        type="password"
-                      ></v-text-field>
-                      <v-text-field
-                        label="Confirme sua senha"
-                        type="password"
-                      ></v-text-field>
-                      <span class="caption grey--text text--darken-1">
-                        Insira sua senha acima!!
-                      </span>
-                    </v-card-text>
-                  </v-window-item>
-
-                  <v-window-item :value="3">
-                    <div class="pa-3 text-xs-center">
-                      <v-img
-                        class="mb-3"
-                        contain
-                        height="128"
-                        src="IMAGEM AQUI"
-                      ></v-img>
-                      <h3 class="title font-weight-light mb-2">Bem Vindo ao Crazy Animes!</h3>
-                      <span class="caption grey--text">Obrigado por criar sua conta! sua alma agora é nossa ;)</span>
+          <template>
+            <v-layout>
+              <v-flex xs12 sm6 offset-sm3>
+                <v-card>
+                  <v-img
+                    class="white--text"
+                    height="200px"
+                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                  >
+                    <v-container fill-height fluid>
+                      <v-layout fill-height>
+                        <v-flex xs12 align-end flexbox>
+                          <span class="headline">Top 10 Australian beaches</span>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-img>
+                  <v-card-title>
+                    <div>
+                      <span class="grey--text">Number 10</span><br>
+                      <span>Whitehaven Beach</span><br>
+                      <span>Whitsunday Island, Whitsunday Islands</span>
                     </div>
-                  </v-window-item>
-                </v-window>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                  <v-btn
-                    :disabled="step === 1"
-                    flat
-                    @click="step--"
-                  >
-                    Voltar
-                  </v-btn>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                    :disabled="step === 3"
-                    color="primary"
-                    depressed
-                    @click="step++"
-                  >
-                    Próximo
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </template>
-            </v-card-text>
-            <v-divider></v-divider>
-          </v-card>
+                  </v-card-title>
+                  <v-card-actions>
+                    <v-btn flat color="orange">Share</v-btn>
+                    <v-btn flat color="orange">Explore</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </template>
         </v-dialog>
       </div>
     </template>
@@ -232,31 +172,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
 <!-- Login -->
 <script>
   export default {
-    data () {
-      return {
-        dialog: false
-      }
-    }
-  }
-</script>
-
-<script>
-  export default {
     data: () => ({
-      step: 1
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters'
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
+      select: null,
+      items: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        'Item 4'
+      ],
+      checkbox: false
     }),
 
-    computed: {
-      currentTitle () {
-        switch (this.step) {
-          case 1: return 'Criar conta'
-          case 2: return 'Crie sua senha'
-          default: return 'Conta registrada'
+    methods: {
+      validate () {
+        if (this.$refs.form.validate()) {
+          this.snackbar = true
         }
+      },
+      reset () {
+        this.$refs.form.reset()
+      },
+      resetValidation () {
+        this.$refs.form.resetValidation()
       }
     }
   }
 </script>
+
 <!-- Fim Login -->
 
 <!-- Carrossel -->
@@ -272,10 +225,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a500ad', end
             src: require('@/assets/no-game-no-life.jpg')
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+            src: require('@/assets/death-note.jpg')
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+            src: require('@/assets/dragon-ball.jpg')
           }
         ]
       }
